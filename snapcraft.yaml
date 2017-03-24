@@ -1,8 +1,9 @@
-name: pc
+name: pc-turtlebot-kyrofa
 version: 16.04-0.8
-summary: AMD64 generic package
+summary: AMD64 gadget for the Turtlebot 2
 description: |
- This package contains a simple OEM snappy package for system configuration
+ This is a fork of the official AMD64 gadget. It simply adds a serial-port
+ slot for the Turtlebot 2's Kobuki base.
 type: gadget
 architectures:
     - amd64
@@ -12,3 +13,11 @@ parts:
     prebuilt:
         plugin: dump
         source: prebuilt
+
+# Custom serial-port interface for the Turtlebot 2
+slots:
+    kobuki:
+        interface: serial-port
+        path: /dev/serial-port-kobuki
+        usb-vendor: 0x0403
+        usb-product: 0x6001
